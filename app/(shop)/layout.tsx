@@ -1,38 +1,49 @@
 import Link from "next/link"
+import SearchBar from "@/components/SearchBar"
+import { HomeIcon, ChatIcon, BoxIcon, PersonIcon, ElipsisIcon } from "@/icons"
 import styles from "./styles.module.css"
 
 const Sidebar = () => {
 	return (
 		<aside className={styles.aside}>
 			<Link className={styles.link} href="/">
-				Home
+				{/* <HomeIcon /> */}
 			</Link>
 			<nav className={styles.nav}>
 				<Link className={styles.link} href="/products">
-					Products
+					<HomeIcon />
 				</Link>
 				<Link className={styles.link} href="/messages">
-					Messages
+					<ChatIcon />
 				</Link>
 				<Link className={styles.link} href="/orders">
-					Orders
+					<BoxIcon />
 				</Link>
 				<Link className={styles.link} href="/">
-					User
+					<PersonIcon />
 				</Link>
 			</nav>
 			<Link className={styles.link} href="/">
-				Menu
+				<ElipsisIcon />
 			</Link>
 		</aside>
 	)
 }
 
+const Header = ({ children }: { children: React.ReactNode }) => (
+	<header className={styles.header}>{children}</header>
+)
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<div className={styles.container}>
 			<Sidebar />
-			{children}
+			<div className={styles.main}>
+				<Header>
+					<SearchBar />
+				</Header>
+				<main className={styles.slot}>{children}</main>
+			</div>
 		</div>
 	)
 }
