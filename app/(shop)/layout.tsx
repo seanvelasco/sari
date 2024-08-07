@@ -64,34 +64,35 @@ const Sidebar = () => {
 					)
 				})}
 			</nav>
-			<Link className={styles.link} href="/">
+			<Link className={styles.cart} href="/">
 				<ElipsisIcon />
 			</Link>
 		</aside>
 	)
 }
 
-const Header = ({ children }: { children: React.ReactNode }) => (
-	<header className={styles.header}>{children}</header>
-)
+const Header = () => {
+	const pathname = usePathname()
+	return (
+		<header className={styles.header}>
+			<SearchBar />
+			<Link
+				className={`${styles.cart} ${
+					pathname === "/cart" && styles.active
+				}`}
+				href="/cart"
+			>
+				<CartIcon filled={pathname === "/cart"} />
+			</Link>
+		</header>
+	)
+}
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-	const pathname = usePathname()
-
 	return (
 		<>
 			<Sidebar />
-			<Header>
-				<SearchBar />
-				<Link
-					className={`${styles.cart} ${
-						pathname === "/cart" && styles.active
-					}`}
-					href="/cart"
-				>
-					<CartIcon filled={pathname === "/cart"} />
-				</Link>
-			</Header>
+			<Header />
 			<main className={styles.main}>{children}</main>
 		</>
 	)

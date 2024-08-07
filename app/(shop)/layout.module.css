@@ -1,6 +1,6 @@
 .main {
-	margin-top: 3.75rem;
-	max-width: 42rem;
+	margin-top: 4.25rem;
+	max-width: 47rem;
 	width: 100%;
 	padding: 0.5rem 1rem;
 	align-self: center;
@@ -11,14 +11,14 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 3.75rem;
-	padding: 1rem;
-	gap: 0.5rem;
-	background-color: black;
+	height: 4.25rem;
+	padding: 1.5rem;
+	background-color: var(--primary);
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
+	z-index: 1;
 }
 
 .aside {
@@ -30,7 +30,7 @@
 	width: 100%;
 	align-items: center;
 	padding: 0.5rem 0;
-	background-color: black;
+	background-color: var(--primary);
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -58,10 +58,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 2.5rem;
-	width: 2.5rem;
+	height: 3.75rem;
+	width: 3.75rem;
 	border-radius: 50%;
-	color: #4d4d4d;
+	color: #949ba4;
 }
 
 .aside svg,
@@ -75,9 +75,15 @@
 }
 
 .link:hover {
-	background-color: #161616;
+	color: #dcdee0;
+	background-color: #37383d;
 }
 
 .active {
-	color: white;
+	color: #f1f1f1;
+}
+
+.active:hover {
+	color: #f1f1f1;
+	background-color: #404247;
 }
