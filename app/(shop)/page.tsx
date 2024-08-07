@@ -1,4 +1,5 @@
 import ProductCard from "@/components/ProductCard"
+import styles from "./page.module.css"
 import type { ProductItem } from "@/components/ProductCard"
 
 const Shop = () => {
@@ -6,7 +7,111 @@ const Shop = () => {
 		{
 			id: "1",
 			name: "Product 1",
-			preview: "",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
+			price: 10,
+			rating: 5,
+			reviewCount: 300
+		},
+		{
+			id: "1",
+			name: "Product 1",
+			preview: "https://img.sean.app/psyduck.png",
 			price: 10,
 			rating: 5,
 			reviewCount: 300
@@ -14,10 +119,11 @@ const Shop = () => {
 	]
 	return (
 		<div>
-			<h1>Products</h1>
-			{products.map((product) => (
-				<ProductCard key={product.id} product={product} />
-			))}
+			<div className={styles.products}>
+				{products.map((product) => (
+					<ProductCard key={product.id} product={product} />
+				))}
+			</div>
 		</div>
 	)
 }

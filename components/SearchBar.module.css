@@ -1,2 +1,18 @@
 .search {
+	width: 100%;
+	max-width: 38rem;
+	padding: 0.75rem 1rem;
+	display: block;
+	height: 2.5rem;
+	border-radius: 2.5rem;
+	background-color: #161616;
+	border: 1px solid #181818;
+	display: flex;
+	letter-spacing: 0.25px;
+	font-weight: 400;
+	color: #fff;
+	font-size: 1em;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.1s ease-in;
 }

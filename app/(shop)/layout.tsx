@@ -1,27 +1,68 @@
+"use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import SearchBar from "@/components/SearchBar"
-import { HomeIcon, ChatIcon, BoxIcon, PersonIcon, ElipsisIcon } from "@/icons"
-import styles from "./styles.module.css"
+import {
+	CartIcon,
+	HomeIcon,
+	ChatIcon,
+	BoxIcon,
+	PersonIcon,
+	ElipsisIcon
+} from "@/icons"
+import styles from "./layout.module.css"
+
+const useUser = () => {
+	return "seanvelasco"
+}
 
 const Sidebar = () => {
+	const user = useUser()
+	const pathname = usePathname()
+
+	const nav = [
+		{
+			label: "Home",
+			href: "/",
+			icon: HomeIcon
+		},
+		{
+			label: "Messages",
+			href: "/messages",
+			icon: ChatIcon
+		},
+		{
+			label: "Orders",
+			href: "/orders",
+			icon: BoxIcon
+		},
+		{
+			label: "User",
+			href: `/user/${user}`,
+			icon: PersonIcon
+		}
+	]
 	return (
 		<aside className={styles.aside}>
 			<Link className={styles.link} href="/">
 				{/* <HomeIcon /> */}
 			</Link>
 			<nav className={styles.nav}>
-				<Link className={styles.link} href="/products">
-					<HomeIcon />
-				</Link>
-				<Link className={styles.link} href="/messages">
-					<ChatIcon />
-				</Link>
-				<Link className={styles.link} href="/orders">
-					<BoxIcon />
-				</Link>
-				<Link className={styles.link} href="/">
-					<PersonIcon />
-				</Link>
+				{nav.map(({ href, icon: Icon }) => {
+					const active = pathname === href
+					return (
+						<Link
+							key={href}
+							className={`${styles.link} ${
+								active && styles.active
+							}`}
+							href={href}
+						>
+							<Icon filled={active} />
+						</Link>
+					)
+				})}
 			</nav>
 			<Link className={styles.link} href="/">
 				<ElipsisIcon />
@@ -35,16 +76,24 @@ const Header = ({ children }: { children: React.ReactNode }) => (
 )
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
+	const pathname = usePathname()
+
 	return (
-		<div className={styles.container}>
+		<>
 			<Sidebar />
-			<div className={styles.main}>
-				<Header>
-					<SearchBar />
-				</Header>
-				<main className={styles.slot}>{children}</main>
-			</div>
-		</div>
+			<Header>
+				<SearchBar />
+				<Link
+					className={`${styles.cart} ${
+						pathname === "/cart" && styles.active
+					}`}
+					href="/cart"
+				>
+					<CartIcon filled={pathname === "/cart"} />
+				</Link>
+			</Header>
+			<main className={styles.main}>{children}</main>
+		</>
 	)
 }
 

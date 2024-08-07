@@ -13,14 +13,27 @@ export type ProductItem = {
 const ProductCard = ({ product }: { product: ProductItem }) => {
 	const { name, preview, price, rating, reviewCount } = product
 	return (
-		<>
-			<Image className={styles.preview} src={preview} alt={name} />
-			<p>{name}</p>
-			<p>PHP {price}</p>
-			<p>
-				{rating} ({reviewCount})
-			</p>
-		</>
+		<div className={styles.card}>
+			<img
+				className={styles.preview}
+				src={preview}
+				alt={name}
+				width={192}
+				height={192}
+			/>
+			<div className={styles.description}>
+				<p className={styles.name}>{name}</p>
+				<p className={styles.price}>
+					{price.toLocaleString("en-PH", {
+						style: "currency",
+						currency: "PHP"
+					})}
+				</p>
+				<p className={styles.rating}>
+					{rating} ({reviewCount})
+				</p>
+			</div>
+		</div>
 	)
 }
 

@@ -1,8 +1,40 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	background-color: #181818;
+	min-width: 12rem;
+	max-width: 12rem;
+	width: 100%;
+	border-radius: 1rem;
+	border: 1px solid #222222;
+	overflow: hidden;
+}
+
 .preview {
-	height: 15rem;
-	width: 15rem;
+	height: 12rem;
+	width: 12rem;
 	object-fit: contain;
 }
 
-.card {
+.description {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0.5rem;
+}
+
+.name {
+	font-weight: 400;
+	font-size: 0.875rem;
+}
+
+.price {
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.rating {
+	color: #777777;
+	font-size: 0.75rem;
+	font-size: 300;
 }
